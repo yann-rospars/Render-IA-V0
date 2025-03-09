@@ -19,8 +19,6 @@ def get_db_connection():
     )
     return conn
 
-#Commentaire inutile
-
 # Route pour récupérer le film Fight Club
 @app.route('/get_fight_club', methods=['GET'])
 def get_fight_club():
@@ -49,6 +47,11 @@ def get_fight_club():
     finally:
         cursor.close()
         conn.close()
+
+# Route pour la racine (Home page)
+@app.route('/')
+def home():
+    return "API de recommandation de films fonctionne ! 🎬"
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
